@@ -1,61 +1,105 @@
-package primeiroProjeto;
+package projetoIniciantes;
 import java.util.Scanner;
-public class acoesBolsa {
+public class bolsaValores {
 
 public static void main(String[]args) {
-
-	/*Em um processo seletivo para trainee em uma fintech, foi solicitada a 
-	criação de um programa que permita calcular as médias dos valores de ações na bolsa ao longo de um mês.
-	Nesse caso, considere que os meses têm 28 dias e quatro semanas.
-	O programa deve apresentar as médias semanais (a menor e maior) e mensal.
-	Trabalhe esse código em seu IDE, suba ele para sua conta no GitHub e 
-	compartilhe o link desse projeto no campo ao lado para que outros desenvolvedores possam analisá-lo.*/
-
 	Scanner sn = new Scanner(System.in);
+	double total1,total2,total3,total4,maior,menor;
+	total1=0;
+	total2=0;
+	total3=0;
+	total4=0;
 	
-	double maior,menor,total,valor;
-	int dias =7;
+	double media1,media2,media3,media4,mediafinal;
+	media1=0;
+	media2=0;
+	media3=0;
+	media4=0;
 	
-	double vetor1[] = new double[7];
-	double vetor2[] = new double[7];
-	double vetor3[] = new double[7];
-	double vetor4[] = new double[7];
-	double total []  = new double[100];
-
-	for(int m=0; m<1; m++) {
+	double semana1 [] = new double[7];
+	double semana2 [] = new double[7];
+	double semana3 [] = new double[7];
+	double semana4 [] = new double[7];
 	
-	for(int i=0; i<dias; i++) {
-		System.out.print("Digite o valor da Acão : ");
-		vetor1[i]= sn.nextInt();
-		valor=vetor1[i];
+	String [] dias = new String[7];
+			  dias[0]="Segunda-Feira";
+			  dias[1]="TerÃ§a-Feira";
+			  dias[2]="Quarta-Feira";
+			  dias[3]="Quinta-Feira";
+			  dias[4]="Sexta-Feira";
+			  dias[5]="SÃ¡bado";
+			  dias[6]="Domingo";
+	
+	System.out.println("---Bolsa de Valores---");
+	
+	System.out.println("===Vamos para a 1Âº semana===");
+	for(int i=0; i<=6; i++) {
+		System.out.print(dias[i]+": R$ ");
+		semana1[i] = sn.nextDouble();
+		total1=total1+semana1[i];
+		media1=total1/7;
 	}
-		System.out.println("Vamos para a segunda Semana");
-		
-		for(int i=0; i<dias; i++) {
-			System.out.print("Digite o valor da Acão : ");
-			vetor2[i]= sn.nextInt();
-			valor=+vetor2[i];
-		}
-			System.out.println("Vamos para a Terceira Semana");
-			
-			for(int i=0; i<dias; i++) {
-				System.out.print("Digite o valor da Acão : ");
-				vetor3[i]= sn.nextInt();
-				valor=+vetor3[i];
-				}
-				System.out.println("Vamos para a 4 Semana");
-				
-				for(int i=0; i<dias; i++) {
-					System.out.print("Digite o valor da Acão : ");
-					vetor4[i]= sn.nextInt();
-					valor=+vetor4[i];
-					total[i]=valor;
-				}
-				
-			System.out.println(total);
-				}
-
-}
-
-}
+	System.out.println("\n");
 	
+	System.out.println("===Vamos para a 2Âº semana===");
+	for(int i=0; i<=6; i++) {
+		System.out.print(dias[i]+": R$ ");
+		semana2[i] = sn.nextDouble();
+		total2=total2+semana2[i];
+		media2=total2/7;
+	}
+	System.out.println("\n");
+	
+	System.out.println("===Vamos para a 3Âº semana===");
+	for(int i=0; i<=6; i++) {
+		System.out.print(dias[i]+ ": R$ ");
+		semana3[i] = sn.nextDouble();
+		total3=total3+semana3[i];
+		media3=total3/7;
+	}
+	System.out.println("\n");
+	
+	System.out.println("===Vamos para a 4Âº semana===");
+	for(int i=0; i<=6; i++) {
+		System.out.print(dias[i]+ ": R$ ");
+		semana4[i] = sn.nextDouble();
+		total4=total4+semana4[i];
+		media4=total4/7;
+	}
+	
+	mediafinal=(media1+media2+media3+media4)/4;
+	
+	maior=0;
+	menor=media1;
+	
+	double mediaM [] = new double[4];
+		   mediaM[0]=media1;
+		   mediaM[1]=media2;
+		   mediaM[2]=media3;
+		   mediaM[3]=media4;
+	
+		   for(int j=0; j<mediaM.length; j++) {
+			   if(mediaM[j]>maior){
+				   maior=mediaM[j];			   
+			   }
+		   }
+		   for(int j=0; j<mediaM.length; j++) {
+			   if(menor>mediaM[j]){
+				   menor=mediaM[j];			   
+			   }
+		   }
+		  
+		   
+		   
+	
+	System.out.println("\n");
+	System.out.println(" A mÃ©dia dos valores da 1Âº semana: "+media1);
+	System.out.println(" A mÃ©dia dos valores da 2Âº semana: "+media2);
+	System.out.println(" A mÃ©dia dos valores da 3Âº semana: "+media3);
+	System.out.println(" A mÃ©dia dos valores da 4Âº semana: "+media4);
+	System.out.println("\n");
+	System.out.println(" A mÃ©dia do MÃªs foi de R$ "+mediafinal);
+	System.out.println(" A maior media do MÃªs foi de R$ "+maior);
+	System.out.println(" A menor media  do MÃªs foi de R$ "+menor);
+}
+}
